@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itszu Bakery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href ="index.html" class = "Brand">Itszu Bakery</a>
+        <a href ="index.html" class="nav-button-active">Home</a> 
+        <a href="Abut.html" class="nav-button">About Us</a>
+        <a href="Menu.html" class="nav-button">Menu</a>
+        <a href="Order.html" class="nav-button">Order Now</a>
+    </div>
+
+
+
+    
+
+    <section class="header">
+        <h1>Welcome to Itszu Bakery</h1>
+        <p>"A sweet time in every bite"</p>
+    </section>
+
+    <section class="welcome">
+        <p>At Itszu Bakery, we believe in the magic of baking. Our passion for creating delicious treats is evident in every bite. From our freshly baked bread to our decadent pastries, we strive to bring joy and sweetness to your day.</p>
+        <p>Join us on this delightful journey as we share our love for baking with you. Whether you're here for a quick snack or a special occasion, we have something for everyone. Explore our menu, place an order, or simply enjoy the aroma of freshly baked goods in our cozy bakery.</p>
+        <p>Thank you for choosing Itszu Bakery. We look forward to serving you and making your day a little sweeter!</p>
+    </section>
+
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="bread.jpg" alt="Freshly Baked Bread">
+                <h3>Freshly Baked Bread</h3>
+                <p>Our artisanal bread is baked daily with the finest ingredients, ensuring a perfect crust and soft interior.</p>
+            </div>
+            <div class="product-card">
+                <img src="pastry.jpg" alt="Delicious Pastries">
+                <h3>Delicious Pastries</h3>
+                <p>Indulge in our selection of pastries, from flaky croissants to rich chocolate éclairs, perfect for any time of day.</p>
+            </div>
+        </div>
+        <a href="Menu.html" class="view-menu-button">View Full Menu</a>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-card">
+            <p>"The best bakery in town! Their bread is always fresh and the pastries are to die for!" - Sarah L.</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"I love the cozy atmosphere and friendly staff. It's my go-to place for a sweet treat!" - John D.</p>
+        </div>
+    </section>
+
+   <script>
+    const welcome = document.querySelector('.welcome');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+         if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+    
+         }
+        });
+     }, {threshold: 0.1});
+
+     observer.observe(welcome);
+
+     const featuredproducts = document.querySelector('.featured-products');
+     const featuredObserver = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                 entry.target.classList.add('show');
+                 observer.unobserve(entry.target);
+             }
+         });
+     }, {threshold: 0.1});
+featuredObserver.observe(featuredproducts);
+
+const testimonials = document.querySelector('.testimonials');
+const testimonialsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold: 0.1});
+
+testimonialsObserver.observe(testimonials);
+
+const viewMenuButton = document.querySelector('.view-menu-button');
+const menuObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold: 0.1});
+menuObserver.observe(viewMenuButton);
+    </script>
+
+    
+  
+</body>
+
+<footer>
+        <p>&copy; 2025 Itszu Bakery</p>
+    </footer>
+</html>

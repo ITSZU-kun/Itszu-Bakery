@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Now | Itszu Bakery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html" class="Brand">Itszu Bakery</a>
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="Abut.html" class="nav-button">About Us</a>
+    <a href="Menu.html" class="nav-button">Menu</a>
+    <a href="Order.html" class="nav-button-active">Order Now</a>
+  </div>
+
+  <section class="order-page">
+    <h2>Place Your Order</h2>
+
+    <div class="order-item">
+      <h4>Classic Fudge Brownie (RM10)</h4>
+      <div class="qty-controls">
+        <button onclick="updateQty('brownie', -1)">-</button>
+        <span id="qty-brownie">0</span>
+        <button onclick="updateQty('brownie', 1)">+</button>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <h4>Walnut Brownie (RM12)</h4>
+      <div class="qty-controls">
+        <button onclick="updateQty('walnut', -1)">-</button>
+        <span id="qty-walnut">0</span>
+        <button onclick="updateQty('walnut', 1)">+</button>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <h4>
+        Chocolate Moist Cake (RM25)
+      </h4>
+        <div class="qty-controls">
+            <button onclick="updateQty('cake', -1)">-</button>
+            <span id="qty-cake">0</span>
+            <button onclick="updateQty('cake', 1)">+</button>
+        </div>
+    </div>
+
+        <div class="order-item">
+      <h4>Red Velvet Slice (RM28)</h4>
+        <div class="qty-controls">
+            <button onclick="updateQty('redvelvet', -1)">-</button>
+            <span id="qty-redvelvet">0</span>
+            <button onclick="updateQty('redvelvet', 1)">+</button>
+        </div>
+    </div>
+
+    <div class="order-item">
+      <h4>Tiramisu Cup (RM15)</h4>
+      <div class="qty-controls">
+        <button onclick="updateQty('tiramisu', -1)">-</button>
+        <span id="qty-tiramisu">0</span>
+        <button onclick="updateQty('tiramisu', 1)">+</button>
+      </div>
+    </div>
+
+    <button class="whatsapp-order-button" onclick="placeOrder()">Place Order via WhatsApp</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Itszu Bakery</p>
+  </footer>
+
+  <script>
+    let cart = {
+      brownie: { name: "Classic Fudge Brownie", price: 10, qty: 0 },
+      walnut: { name: "Walnut Brownie", price: 12, qty: 0 },
+      tiramisu: { name: "Tiramisu Cup", price: 15, qty: 0 },
+        cake: { name: "Chocolate Moist Cake", price: 25, qty: 0 },
+        redvelvet: { name: "Red Velvet Slice", price: 28, qty: 0 }
+    };
+
+    function updateQty(item, change) {
+      if (cart[item].qty + change >= 0) {
+        cart[item].qty += change;
+        document.getElementById(`qty-${item}`).innerText = cart[item].qty;
+      }
+    }
+
+    function placeOrder() {
+      let message = "Hi! I'd like to order:\n";
+      let total = 0;
+      for (let item in cart) {
+        if (cart[item].qty > 0) {
+          message += `- ${cart[item].qty}x ${cart[item].name} (RM${cart[item].price})\n`;
+          total += cart[item].price * cart[item].qty;
+        }
+      }
+      if (total === 0) {
+        alert("Please select at least one item!");
+        return;
+      }
+      message += `Total: RM${total}\nName: \nAddress: `;
+      const encoded = encodeURIComponent(message);
+      const whatsappNumber = "60103632917"; // replace with your actual number
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encoded}`;
+      window.open(whatsappLink, "_blank");
+    }
+  </script>
+</body>
+</html>

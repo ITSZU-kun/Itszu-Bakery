@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Itszu Bakery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html" class="Brand">Itszu Bakery</a>
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="Abut.html" class="nav-button-active">About Us</a>
+    <a href="Menu.html" class="nav-button">Menu</a>
+    <a href="Order.html" class="nav-button">Order Now</a>
+  </div>
+
+  <!-- About Us Section -->
+  <section class="about-us">
+    <h2>About Itszu Bakery</h2>
+
+    <h3>Our Story</h3>
+    <p>Itszu Bakery began as a small dream — a cozy kitchen, a curious heart, and a deep love for baking. What started as a hobby of crafting sweet treats for friends and family turned into a passion for spreading joy through food. With each brownie baked and cake carefully decorated, our goal has always been the same: to create simple moments of happiness in every bite.</p>
+
+    <h3>What Makes Us Special</h3>
+    <ul>
+      <li>🍫 Handmade in small batches for quality and freshness</li>
+      <li>🎁 Perfect for gifts, events, or a little self-love</li>
+      <li>💜 Custom orders available — because every customer is unique</li>
+      <li>🌱 We use only the best ingredients, with love in every layer</li>
+    </ul>
+
+    <h3>Meet the Baker</h3>
+    <p>Hi! I'm Izzu — the heart behind Itszu Bakery. I'm a student, a self-taught baker, and a person who finds peace in mixing butter and sugar together. I believe baking is both a science and an art, and I love exploring new flavors, perfecting classics, and turning everyday cravings into special treats.</p>
+
+    <h3>Our Mission</h3>
+    <p>To bring a little more warmth, sweetness, and human connection into the world through humble homemade desserts. Whether it's a brownie shared between friends or a cake that lights up a birthday, we want to be part of your special moments.</p>
+
+    <p class="thank-you">Thank you for supporting our small business. Every order means the world to us. 💕</p>
+  </section>
+
+  <!-- JS for scroll animation -->
+  <script>
+    const section = document.querySelector('.about-us');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    observer.observe(section);
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Itszu Bakery</p>
+  </footer>
+</body>
+</html>
