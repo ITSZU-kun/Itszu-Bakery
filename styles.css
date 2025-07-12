@@ -184,7 +184,7 @@ footer {
     padding: 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    margin-top: auto;
+    
 
 }
 
@@ -319,7 +319,21 @@ img {
     font-size: 1rem;
   }
 
-  
+  html, body{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    
+    background-color: #e2cff7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
 
   .product-grid,
   .menu-category .product-grid {
